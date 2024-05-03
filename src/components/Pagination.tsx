@@ -28,6 +28,17 @@ const Pagination = () => {
     variables: { page, perPage },
   });
   //   console.log(data);
+  const handleNext=()=>{
+    
+      setPage(page+1)
+    
+  }
+  const handlePre=()=>{
+    if(page <= 1){
+      setPage(page-1)
+    }
+    setPage(1)
+  }
 
   return (
     <main>
@@ -56,6 +67,10 @@ const Pagination = () => {
             ))}
           </tbody>
         </table>
+        <div className="max-w-[400px] flex gap-6">
+          <button onClick={()=>handlePre()}>pre</button>
+          <button onClick={()=>handleNext()}>next</button>
+        </div>
       </div>
     </main>
   );
