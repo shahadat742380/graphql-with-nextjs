@@ -22,16 +22,14 @@ interface Book {
 
 const Pagination = () => {
   const [page, setPage] = useState(1);
-  const perPage = 5;
+  const perPage = 3;
 
   const { data } = useSuspenseQuery<{ booksPerPage: Book[] }>(query, {
     variables: { page, perPage },
   });
   //   console.log(data);
   const handleNext=()=>{
-    
       setPage(page+1)
-    
   }
   const handlePre=()=>{
     if(page <= 1){
@@ -67,9 +65,9 @@ const Pagination = () => {
             ))}
           </tbody>
         </table>
-        <div className="max-w-[400px] flex gap-6">
-          <button onClick={()=>handlePre()}>pre</button>
-          <button onClick={()=>handleNext()}>next</button>
+        <div className="w-full flex gap-6 justify-center my-10">
+          <button className="bg-green-600 text-white rounded px-5 py-3 uppercase" onClick={()=>handlePre()}>pre</button>
+          <button className="bg-green-600 text-white rounded px-5 py-3 uppercase" onClick={()=>handleNext()}>next</button>
         </div>
       </div>
     </main>

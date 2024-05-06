@@ -3,7 +3,6 @@
 import { useSuspenseQuery } from "@apollo/experimental-nextjs-app-support/ssr";
 
 import { gql } from "@apollo/client";
-import { VariablesAreInputTypesRule } from "graphql";
 
 const query = gql`
   query Query($limit: Int) {
